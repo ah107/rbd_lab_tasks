@@ -1,0 +1,148 @@
+zd1                  |
+_____________________|
+CREATE DATABASE taxi;
+\l
+\c taxi
+______________________
+zd2                   |
+______________________|
+CREATE SCHEMA taxi;
+CREATE TABLE taxi.passenger( id int NOT NULL );
+CREATE TABLE taxi.passenger_rating(id int NOT NULL, behavior int NOT NULL, punctuality int NOT NULL);
+CREATE TABLE taxi.driver_rating(id int NOT NULL, skills int NOT NULL, car_condition int NOT NULL, complying_with_traffic_regulations int NOT NULL);
+CREATE TABLE taxi.driver(id int NOT NULL, photo bytea);
+CREATE TABLE taxi.driver_car(id int NOT NULL, color varchar(25),registration_number varchar(25));
+CREATE TABLE taxi.car(id int NOT NULL, brand varchar(100),model varchar(100));
+CREATE TABLE taxi.vehicle_type(id int NOT NULL, name varchar(50) NOT NULL);
+CREATE TABLE taxi.user(id int NOT NULL, first_name varchar(100), last_name varchar(100), mobile_number varchar(100), email varchar(100));
+CREATE TABLE taxi.ride(id int NOT NULL, distance decimal NOT NULL);
+CREATE TABLE taxi.payment_type(id int NOT NULL, name varchar(50) NOT NULL);
+CREATE TABLE taxi.payment(id int NOT NULL, money decimal NOT NULL);
+CREATE TABLE taxi.area(id int NOT NULL, name varchar(256) NOT NULL);
+CREATE TABLE taxi.address(id int NOT NULL, street varchar(100) NOT NULL, house_number varchar(25), apartment_number varchar(25), zip_code varchar(25) NOT NULL, city varchar(25) NOT NULL, country varchar(25) NOT NULL  );
+INSERT INTO 
+  taxi.address (street, house_number, apartment_number, zip_code, city, country)
+VALUES
+  ('Grunwaldzka', '2a', '3', '80-000', 'Gdansk', 'Poland'),
+  ('Norwida', '19', '1c','81-000', 'Gdynia', 'Poland'),
+  ('Koszykowa', '86', '23',  '02-008', 'Warszawa', 'Poland'),
+  ('Koszykowa', '87', '232',  '02-008', 'Warszawa', 'Poland'),
+  ('Koszykowa', '88', '2323',  '02-008', 'Warszawa', 'Poland');
+INSERT INTO 
+  taxi.passenger_rating (behavior, punctuality)
+VALUES
+ ('5','5'),
+ ('3','5'),
+ ('2','4'),
+ ('1','5'),  
+ ('4','1');
+
+INSERT INTO 
+  taxi.driver_rating (skills, car_condition, complying_with_traffic_regulations)
+VALUES
+ ('5','5','8'),
+ ('2','3','5'),
+ ('1','4','7'),  
+  ('5','5','5'),
+ ('4','4','4');
+INSERT INTO 
+  taxi.driver (photo)
+VALUES
+ ('134'),
+ ('123'),
+ ('123'),
+ ('123'),
+ ('123');
+ 
+
+INSERT INTO 
+  taxi.driver_car (color, registration_number)
+VALUES
+ ('5','5'),
+ ('3','5'),
+ ('2','4'),
+ ('1','5'),  
+ ('4','1');
+
+
+INSERT INTO 
+  taxi.car (brand ,model)
+VALUES
+ ('assda','adad'),
+ ('asasd','dadda'),
+ ('gffd','gdds'),
+ ('ererer','rrerge'),  
+ ('asasas','fsfs');
+
+
+INSERT INTO 
+  taxi.vehicle_type(name);
+VALUES
+('rfrf'),
+('rfrf'),
+('rfrfr'),
+('rfrr'),
+('frfrf');
+ 
+INSERT INTO 
+  taxi.user(first_name, last_name, mobile_number, email);
+VALUES
+ ('Hheh','Ululu','3463643446','sdesds@dfsfds.sd'),
+ ('dsfseh','Ululu','3463645346','sdswds@dfsfds.sd'),
+('wrwrheh','Ululu','3463642346','sdrsds@dfsfds.sd'),
+('Hteheh','Ululu','3463614346','sdstds@dfsfds.sd'),
+('ERHheh','Ululu','3463647346','sdsdds@dfsfds.sd');
+INSERT INTO 
+  taxi.ride( distance)
+VALUES
+('124.3'),
+('658.5'),
+('5678.4'),
+('236547.77'),
+('35453.99');
+
+INSERT INTO 
+  taxi.payment_type (name)
+VALUES
+ ('rerw'),
+('sdse'),
+('ttyu'),
+('erer'),
+('retert');
+
+
+INSERT INTO 
+  taxi.payment(money)
+VALUES
+ ('5345'),
+ ('546.45'),
+ ('5654654.6'),
+ ('59898.7'),
+ ('55678.99');
+
+
+INSERT INTO 
+  taxi.arrea(name)
+VALUES(
+('Fefe'),
+('Fetr'),
+('Ftre'),
+('Wers'),
+('Efslf');
+
+
+
+SELECT * FROM taxi.adress;
+SELECT * FROM taxi.passenger_rating;
+SELECT * FROM taxi.driver_rating;
+SELECT * FROM taxi.driver;
+SELECT * FROM taxi.driver_car;
+SELECT * FROM taxi.car;
+SELECT * FROM taxi.vehicle_type;
+SELECT * FROM taxi.user;
+SELECT * FROM taxi.ride;
+SELECT * FROM taxi.payment_type;
+SELECT * FROM taxi.payment;
+SELECT * FROM taxi.area;
+
+
